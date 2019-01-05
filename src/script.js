@@ -1,4 +1,6 @@
 var wl = window.location;
+var input_box = document.querySelector("#input-box");
+input_box.setAttribute("oninput", "encode();");
 
 // https://css-tricks.com/snippets/javascript/get-url-variables/
 function getQueryVariable(variable) {
@@ -13,6 +15,7 @@ function getQueryVariable(variable) {
       return (false);
 }
 
-function encode(input) {
+function encode() {
+      var input = input_box.value;
       wl.href = wl.origin + wl.pathname + "?content=" + encodeURI(input);
 }
