@@ -19,3 +19,5 @@ function encode() {
       var input = input_box.value;
       wl.href = wl.origin + wl.pathname + "?content=" + encodeURI(input);
 }
+
+input_box.value = def;
