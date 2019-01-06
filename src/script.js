@@ -17,10 +17,9 @@ function getQueryVariable(variable) {
 
 function encode() {
       var input = input_box.value;
-      localStorage.setItem("url-input", input);
       var path = wl.pathname + "?content=" + encodeURI(input);
       window.history.pushState("", "HTMLURL", path);
 }
 
 // input_box.value = def;
-input_box.value = localStorage.getItem("url-input");
+input_box.value = getQueryVariable("content");
