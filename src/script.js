@@ -17,9 +17,9 @@ function getQueryVariable(variable) {
 
 function encode() {
       var input = input_box.value;
-      var path = wl.pathname + "?content=" + encodeURI(input);
+      var path = wl.pathname + "?content=" + escape(input);
       window.history.pushState("", "HTMLURL", path);
-      document.querySelector("#content-div").innerHTML = decodeURI(getQueryVariable("content"));
+      document.querySelector("#content-div").innerHTML = unescape(getQueryVariable("content"));
 }
 
 var content = getQueryVariable("content");
@@ -27,5 +27,5 @@ if (content == undefined || content == "") {
       input_box.value = def;
       encode();
 } else {
-      input_box.value = decodeURI(content);
+      input_box.value = unescape(content);
 }
