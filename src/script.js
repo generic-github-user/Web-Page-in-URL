@@ -21,5 +21,10 @@ function encode() {
       window.history.pushState("", "HTMLURL", path);
 }
 
-// input_box.value = def;
-input_box.value = getQueryVariable("content");
+var content = getQueryVariable("content");
+if (content == undefined || content == "") {
+      input_box.value = def;
+      encode();
+} else {
+      input_box.value = decodeURI(content);
+}
