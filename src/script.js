@@ -19,6 +19,7 @@ function encode() {
       var input = input_box.value;
       var path = wl.pathname + "?content=" + encodeURI(input);
       window.history.pushState("", "HTMLURL", path);
+      document.querySelector("#content-div").innerHTML = decodeURI(getQueryVariable("content"));
 }
 
 var content = getQueryVariable("content");
